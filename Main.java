@@ -11,16 +11,78 @@ public class Main {
         Scanner sc =
                 new Scanner(System.in);
 
+
+        // ============================
+        // MENU AWAL ZOMBIE GAME
+        // ============================
+
+        System.out.println("================================");
+        System.out.println("          ZOMBIE GAME");
+        System.out.println("================================");
+        System.out.println("1. PLAY");
+        System.out.println("2. QUIT");
+        System.out.println("================================");
+
+        System.out.print("Pilih menu: ");
+
+        int menu =
+                sc.nextInt();
+
+        sc.nextLine();
+
+
+        // ============================
+        // JIKA QUIT
+        // ============================
+
+        if (menu == 2) {
+
+            System.out.println(
+                    "\nTerima kasih sudah bermain."
+            );
+
+            System.out.println(
+                    "Game ditutup."
+            );
+
+            sc.close();
+            return;
+        }
+
+
+        // ============================
+        // JIKA MENU SALAH
+        // ============================
+
+        if (menu != 1) {
+
+            System.out.println(
+                    "\nPilihan tidak tersedia."
+            );
+
+            sc.close();
+            return;
+        }
+
+
+
+        // ============================
+        // MULAI GAME
+        // ============================
+
         ZombieGame game =
                 new ZombieGame();
 
         boolean finished = false;
+
 
         // ============================
         // INTRO STORY
         // ============================
 
         game.introStory();
+
+
 
         // ============================
         // GAME LOOP
@@ -31,25 +93,33 @@ public class Main {
                         && !finished
         ) {
 
+
             // tampilkan daftar tersangka
             game.showSuspects();
+
 
             System.out.print(
                     "\nMasukkan nomor tersangka: "
             );
 
+
             int guess =
                     sc.nextInt() - 1;
 
+
             sc.nextLine();
 
+
             try {
+
 
                 // ============================
                 // TAMPILKAN CLUE
                 // ============================
 
                 game.showClue(guess);
+
+
 
                 // ============================
                 // KONFIRMASI PLAYER
@@ -61,8 +131,11 @@ public class Main {
                                 + "(iya/tidak): "
                 );
 
+
                 String answer =
                         sc.nextLine();
+
+
 
                 // ============================
                 // PROSES KEPUTUSAN
@@ -74,8 +147,10 @@ public class Main {
                                 answer
                         );
 
+
+
                 // ============================
-                // JIKA SEMUA ZOMBIE MATI
+                // FINAL ENDING
                 // ============================
 
                 if (
@@ -83,89 +158,111 @@ public class Main {
                                 && game.getZombiesLeft() == 0
                 ) {
 
+
                     System.out.println(
                             "\n================================"
                     );
+
 
                     System.out.println(
                             "         FINAL ENDING"
                     );
 
+
                     System.out.println(
                             "================================"
                     );
+
 
                     System.out.println(
                             "\nFINAL SCORE: "
                                     + game.getScore()
                     );
 
+
                     System.out.println(
                             "\nSirine mulai berhenti..."
                     );
 
+
                     System.out.println(
                             "Suasana kota perlahan tenang."
                     );
+
 
                     System.out.println(
                             "Warga mulai keluar "
                                     + "dari tempat persembunyian."
                     );
 
+
                     System.out.println(
                             "\nUntuk malam ini..."
                     );
+
 
                     System.out.println(
                             "umat manusia berhasil bertahan."
                     );
 
+
                     System.out.println(
                             "\n\"Tetapi ancaman itu..."
                     );
 
+
                     System.out.println(
                             "belum benar-benar hilang.\""
                     );
+
 
                     System.out.println(
                             "\n=========== THE END ==========="
                     );
                 }
 
+
+
             }
 
+
+
             // ============================
-            // JIKA SALAH MENEBak
+            // SALAH MENEBak
             // ============================
 
             catch (
                     WrongGuessException e
             ) {
 
+
                 System.out.println(
                         "\n" + e.getMessage()
                 );
+
 
                 System.out.println(
                         "\nKesempatan tersisa: "
                                 + game.getChances()
                 );
 
-                // jika belum kalah
+
+
                 if (
                         game.getChances() > 0
                 ) {
+
 
                     System.out.println(
                             "\nSuasana semakin mencekam..."
                     );
 
+
                     System.out.println(
                             "Terdengar jeritan "
                                     + "dari kejauhan..."
                     );
+
 
                     System.out.println(
                             "Lampu kota mulai padam "
@@ -175,6 +272,9 @@ public class Main {
             }
         }
 
+
+
+
         // ============================
         // GAME OVER
         // ============================
@@ -183,38 +283,47 @@ public class Main {
                 game.getChances() == 0
         ) {
 
+
             System.out.println(
                     "\n================================"
             );
+
 
             System.out.println(
                     "           GAME OVER"
             );
 
+
             System.out.println(
                     "================================"
             );
+
 
             System.out.println(
                     "\nZombie berhasil menyusup "
                             + "ke dalam kota..."
             );
 
+
             System.out.println(
                     "Orang-orang mulai berteriak..."
             );
+
 
             System.out.println(
                     "Suasana berubah menjadi kacau."
             );
 
+
             System.out.println(
                     "Satu per satu warga tumbang..."
             );
 
+
             System.out.println(
                     "\nTidak ada yang selamat."
             );
+
 
             System.out.println(
                     "\nFINAL SCORE: "
@@ -222,7 +331,8 @@ public class Main {
             );
         }
 
-        // tutup scanner
+
         sc.close();
+
     }
 }

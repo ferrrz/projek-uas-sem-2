@@ -53,6 +53,12 @@ public class ZombieGame {
                         + "dan tidak menjawab siapa pun."
         ));
 
+        suspects.add(new Human(
+                "Neneng",
+                "langkahnya lambat dan tidak stabil. "
+                        + "pakaiannya penuh noda darah."
+        ));
+
         // zombie 2
         suspects.add(new Zombie(
                 "Hilga",
@@ -65,6 +71,18 @@ public class ZombieGame {
                 "Ditha",
                 "Napasnya berat dan sedikit pucat... "
                         + "tangannya gemetar."
+        ));
+
+        suspects.add(new Human(
+                "doni",
+                "tidak banyak bergerak. "
+                        + "hanya berdiri diam melihat kerumunan."
+        ));
+
+        suspects.add(new Human(
+                "kimdan",
+                "saat dipanggil. "
+                        + "dia tidak merespon."
         ));
     }
 
@@ -117,12 +135,12 @@ public class ZombieGame {
         );
 
         slowPrint(
-                "Orang-orang mulai berperilaku aneh... "
-                        + "mereka saling menyerang.\n"
+                "Orang-orang mulai berperilaku aneh...\n"
+                        + "Mereka saling menyerang."
         );
 
         slowPrint(
-                "dan warga mulai panik...\n"
+                "Dan warga mulai panik..."
         );
 
         slowPrint(
@@ -130,42 +148,47 @@ public class ZombieGame {
         );
 
         slowPrint(
-                "...tetapi bukan manusia.\n"
+                "Tetapi bukan manusia."
         );
 
         slowPrint(
-                "Warga mulai mencurigai.... "
+                "Warga mulai mencurigai.... \n"
                         + "7 orang manusia."
         );
 
         slowPrint(
                 "Di antara mereka "
-                        + "sebenarnya bukan manusia...\n"
+                        + "sebenarnya bukan manusia..."
         );
 
         slowPrint(
-                "Melainkan ada sesuatu...."
-                        + "yang mencurigakan.\n"
+                "Melainkan ada sesuatu...\n"
+                        + "Yang mencurigakan."
         );
 
         slowPrint(
-                "Diantara mereka..."
-                        + "tidak ada yang bisa dipercaya.\n"
+                "Diantara mereka...\n"
+                        + "Tidak ada yang bisa dipercaya."
 
         );
 
         slowPrint(
-                "Tugasmu hanya satu...\n"
+                "Tugasmu hanya satu..."
         );
 
         slowPrint(
-                "Temukan hal yang mencurigakan..."
-                        + "dan siapakah orang itu."
+                "Temukan hal yang mencurigakan...\n"
+                        + "Dan siapakah orang itu."
         );
 
         slowPrint(
-                "sebelum kota ini "
-                        + "menjadi semakin kacau.\n"
+                "Sebelum kota ini "
+                        + "Menjadi semakin kacau.\n"
+        );
+
+        slowPrint(
+                "Kesempatanmu hanya 4 kali untuk menebak siapa zombie itu..."
+
         );
     }
 
